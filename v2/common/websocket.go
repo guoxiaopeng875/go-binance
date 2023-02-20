@@ -257,7 +257,7 @@ func (ws *WsConn) writeRequest() {
 			err = ws.c.WriteMessage(websocket.CloseMessage, d)
 		case <-heartTimer.C:
 			if ws.HeartbeatIntervalTime > 0 {
-				err = ws.c.WriteMessage(websocket.TextMessage, ws.HeartbeatData())
+				err = ws.c.WriteMessage(websocket.PingMessage, ws.HeartbeatData())
 				heartTimer.Reset(ws.HeartbeatIntervalTime)
 			}
 		}
