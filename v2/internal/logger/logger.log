@@ -1,6 +1,6 @@
-2023/02/16 15:57:03 logger_test.go:13: [D] debug log
-2023/02/16 15:57:03 logger_test.go:14: [D] 0.29121012
-2023/02/16 15:57:03 logger_test.go:15: [I] info log
-2023/02/16 15:57:03 logger_test.go:16: [W] test error
-2023/02/16 15:57:03 logger_test.go:19: [D] debug log2
-2023/02/16 15:57:03 logger_test.go:20: [I] info log2
+2023/02/16 17:02:03 logger_test.go:13: [D] debug log
+2023/02/16 17:02:03 logger_test.go:14: [D] 0.29121012
+2023/02/16 17:02:03 logger_test.go:15: [I] info log
+2023/02/16 17:02:03 logger_test.go:16: [W] test error
+2023/02/16 17:02:03 logger_test.go:19: [D] debug log2
+2023/02/16 17:02:03 logger_test.go:20: [I] info log2

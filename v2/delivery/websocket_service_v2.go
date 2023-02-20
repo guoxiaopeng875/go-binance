@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"github.com/adshao/go-binance/v2/common"
 	"os"
+	"time"
 )
 
 // WsUserDataServeV2 serve user data handler with listen key
@@ -18,8 +19,14 @@ func WsUserDataServeV2(listenKey string, handler WsUserDataHandler) *common.WsCo
 		handler(event)
 		return nil
 	}
+
 	return common.NewWsBuilder().
 		ProxyUrl(os.Getenv("HTTPS_PROXY")).
-		ProtoHandleFunc(wsHandler).AutoReconnect().
-		WsUrl(endpoint).Build()
+		ProtoHandleFunc(wsHandler).
+		Heartbeat(func() []byte {
+			return []byte("1")
+		}, time.Second*30).
+		AutoReconnect().
+		WsUrl(endpoint).
+		Build()
 }
