@@ -151,10 +151,12 @@ const (
 	SymbolStatusTypeAuctionMatch SymbolStatusType = "AUCTION_MATCH"
 	SymbolStatusTypeBreak        SymbolStatusType = "BREAK"
 
-	SymbolFilterTypeLotSize          SymbolFilterType = "LOT_SIZE"
-	SymbolFilterTypePriceFilter      SymbolFilterType = "PRICE_FILTER"
-	SymbolFilterTypePercentPrice     SymbolFilterType = "PERCENT_PRICE"
-	SymbolFilterTypeMinNotional      SymbolFilterType = "MIN_NOTIONAL"
+	SymbolFilterTypeLotSize      SymbolFilterType = "LOT_SIZE"
+	SymbolFilterTypePriceFilter  SymbolFilterType = "PRICE_FILTER"
+	SymbolFilterTypePercentPrice SymbolFilterType = "PERCENT_PRICE"
+	// Deprecated: use SymbolFilterTypePercentPrice instead
+	SymbolFilterTypeMinNotional      SymbolFilterType = "NOTIONAL"
+	SymbolFilterTypeNotional         SymbolFilterType = "NOTIONAL"
 	SymbolFilterTypeIcebergParts     SymbolFilterType = "ICEBERG_PARTS"
 	SymbolFilterTypeMarketLotSize    SymbolFilterType = "MARKET_LOT_SIZE"
 	SymbolFilterTypeMaxNumAlgoOrders SymbolFilterType = "MAX_NUM_ALGO_ORDERS"
@@ -985,4 +987,24 @@ func (c *Client) NewSubAccountListService() *SubAccountListService {
 // NewGetUserAsset Get user assets, just for positive data
 func (c *Client) NewGetUserAsset() *GetUserAssetService {
 	return &GetUserAssetService{c: c}
+}
+
+// NewManagedSubAccountDepositService Deposit Assets Into The Managed Sub-account（For Investor Master Account）
+func (c *Client) NewManagedSubAccountDepositService() *ManagedSubAccountDepositService {
+	return &ManagedSubAccountDepositService{c: c}
+}
+
+// NewManagedSubAccountWithdrawalService Withdrawal Assets From The Managed Sub-account（For Investor Master Account）
+func (c *Client) NewManagedSubAccountWithdrawalService() *ManagedSubAccountWithdrawalService {
+	return &ManagedSubAccountWithdrawalService{c: c}
+}
+
+// NewManagedSubAccountAssetsService Withdrawal Assets From The Managed Sub-account（For Investor Master Account）
+func (c *Client) NewManagedSubAccountAssetsService() *ManagedSubAccountAssetsService {
+	return &ManagedSubAccountAssetsService{c: c}
+}
+
+// NewSubAccountFuturesAccountService Get Detail on Sub-account's Futures Account (For Master Account)
+func (c *Client) NewSubAccountFuturesAccountService() *SubAccountFuturesAccountService {
+	return &SubAccountFuturesAccountService{c: c}
 }
