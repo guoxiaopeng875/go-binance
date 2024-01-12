@@ -1022,3 +1022,8 @@ func (c *Client) NewSubAccountFuturesAccountService() *SubAccountFuturesAccountS
 func (c *Client) NewSubAccountFuturesSummaryV1Service() *SubAccountFuturesSummaryV1Service {
 	return &SubAccountFuturesSummaryV1Service{c: c}
 }
+
+// NewGetSimpleEarnAccountService Get simple earn account info
+func (c *Client) NewGetSimpleEarnAccountService() *GetSimpleEarnAccountService {
+	return &GetSimpleEarnAccountService{c: c}
+}
